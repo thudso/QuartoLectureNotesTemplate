@@ -1,0 +1,11 @@
+{{< include macros.qmd >}}
+
+# Preface {.unnumbered}
+
+Welcome to a simple template for creating lecture notes using Quarto. This template is designed to be easy to use and modify, allowing you to focus on the content of your notes rather than the formatting.
+
+This is the landing page, and is an html render of `index.qmd`, serving as the main entry point for the notes, behaving like a title page. You can naviagate to other chapters by clicking on the links in the sidebar, or at the bottom of the page. The first chapter will provide a quick start guide to quarto, and the rest of the chapters will be a simple template for you to use to create your own lecture notes. You can add as many chapters as you like, and modify the content and formatting to suit your needs.
+
+Note that these notes assume that you are already very familiar with create LaTeX notes, and work from there. There will doubtless be errors and typos present in this template. If you do spot anything, please feel free to let me know via email.
+
+[Dr Thomas Hudson](https://sites.google.com/view/thudso/), Sept 2026

@@ -1,0 +1,90 @@
+# Advanced topics {#sec-adv}
+
+In this final chapter, we will cover the use of code blocks and embedding video in the notes. This chapter is not rendered on a first download, as it requires python to be installed, and Quarto will need to know about it. The python packages used below are `numpy`, `matplotlib`, `linalg` and `qrcode`. You will find further information about how to configure Quarto correctly to work with Python in the [Quarto docs](https://quarto.org/docs/computations/python.html). Note that integration with R, Julia and JavaScript are also all possible.
+
+## Code blocks {#sec-adv-code-blocks}
+
+Code blocks are included using triple backticks, and can be used to include code in various programming languages. For example, the following code block defines a simple Python function, and then runs it. You should see the output of the function in the rendered notes.
+
+```{python}
+def hello_world():
+    print("Hello, world!")
+
+hello_world()
+```
+
+If desired, code blocks can be labelled and referenced in the same way as equations, figures, and sections. See below for an example, which should hopefully now be fairly self-explanatory. Note the `lst-cap` attribute, which provides a caption for the code block.
+
+::: {#lst-my-first-function lst-cap="Computing the mean of the numbers 1-10."}
+```{python}
+x = 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10
+print("The arithmetic mean of the numbers 1-10 is", x / 10)
+```
+:::
+
+Code blocks can be used to *produce* figures, as well as to provide code snippets, which is a really nice feature. When using them for figures, it can be useful to hide the code block, but you don't need to do this if you want students to have access to the code. A more sophisticated example of this is provided below. In the markdown, you should be able to see the following opening lines:
+```
+#| label: fig-energyplot
+#| echo: false
+#| fig-cap: "The variation of the Neo-Hookean energy density as a function of various forms of stretch. Here, a=0.6MPa and c=0.6MPa, which are values representative of rubber."
+#| fig-alt: "A plot of the Neo-Hookean energy density as a function of stretch for uniaxial, biaxial, and triaxial deformations. The energy density increases with both stretching compression. Close to the identity, the stored energy is highest for triaxial deformation, then biaxial, followed by uniaxial deformation."
+```
+Note these lines begin with `#|`, and set various Quarto attributes for the block. In this case, they set the label for the figure, hide the code block, set the caption and define the alt-text for the figure. The code which follows these lines produces the image for the figure, which will appear rendered in the notes (both html and pdf versions). 
+
+```{python}
+#| label: fig-energyplot
+#| echo: false
+#| fig-cap: "The variation of the Neo-Hookean energy density as a function of various forms of stretch. Here, a=0.6MPa and c=0.6MPa, which are values representative of rubber."
+#| fig-alt: "A plot of the Neo-Hookean energy density as a function of stretch for uniaxial, biaxial, and triaxial deformations. The energy density increases with both stretching compression. Close to the identity, the stored energy is highest for triaxial deformation, then biaxial, followed by uniaxial deformation."
+
+import matplotlib.pyplot as plt
+import numpy as np
+import numpy.linalg as la
+a = 0.6 ## MPa
+kappa = 0.6 ## MPa
+c = kappa/9 - 4*a/9
+ls = np.arange(0.00001,4.001,0.01)
+F1 = lambda l : np.array([[l, 0.0, 0.0], [0., 1., 0.], [0., 0., 1.]])
+F2 = lambda l : np.array([[l, 0.0, 0.0], [0., l, 0.], [0., 0., 1.]])
+F3 = lambda l : np.array([[l, 0.0, 0.0], [0., l, 0.], [0., 0., l]])
+cofF = lambda F : la.det(F)*(la.inv(F).T)
+W = lambda F : a*la.norm(F,ord='fro')**2+c*la.det(F)-(2*a+c)*np.log(la.det(F)) - 3*a - c
+plt.plot(ls,[W(F1(l)) for l in ls],label="Uniaxial")
+plt.plot(ls,[W(F2(l)) for l in ls],label="Biaxial")
+plt.plot(ls,[W(F3(l)) for l in ls],label="Triaxial")
+plt.xlabel(r'$\lambda$')
+plt.ylabel(r'Strain energy density, $W(F_\lambda)$ in MPa')
+plt.ylim((0.0,15.0))
+plt.xlim((0.0,4.0))
+plt.legend()
+plt.show()
+```
+
+## Videos {#sec-adv-videos}
+
+A further nice feature of Quarto is that you can embed videos in the html notes, for example the following video on Bayes rule is embedded in the html output from YouTube. Note that for the html, it is good practice is to embed video from a third-party website rather than include your own as a raw video file. The reason for this is that third-party hosting sites should provide subtitles which can then be used with a screen reader. If you are viewing the pdf version of the notes, the embdedded video will be replaced by a QR code which can be scanned to access the video. In the markdown below, you'll see that the QR code is automatically generated using the Python `qrcode` package. If you copy the code below, make sure to change the video addresses each time it appears, note there are 3 places to do this!
+
+::: {.content-visible when-format="html"}
+{{< video https://www.youtube.com/watch?v=7GgLSnQ48os >}}
+:::
+
+::: {.content-visible when-format="pdf"}
+```{python}
+#| echo: false
+#| fig-cap: "Scan to watch the video on Bayes rule, or visit directly via the link: https://www.youtube.com/watch?v=7GgLSnQ48os"
+#| out-width: "20%"
+#| fig-align: "center"
+
+import qrcode
+import matplotlib.pyplot as plt
+
+url = "https://www.youtube.com/watch?v=7GgLSnQ48os"
+qr = qrcode.make(url)
+
+fig, ax = plt.subplots()
+ax.imshow(qr, cmap="gray")
+ax.axis("off")
+plt.tight_layout()
+plt.show()
+```
+:::

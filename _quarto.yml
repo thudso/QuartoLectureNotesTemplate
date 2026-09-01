@@ -1,0 +1,41 @@
+project:
+  type: book          
+  output-dir: ./docs # where the output will be written to, relative to the location of this file
+
+book: # Most field below are hopefully self-explanatory, setting metadata as in a latex file
+  title: "Quarto Lecture Notes"
+  author: "Thomas Hudson"
+  date: today                   
+  date-format: "D MMMM, YYYY"
+  chapters: # This is where you can specify the order of your chapters.
+    - index.qmd
+    - chapter1.qmd
+    - chapter2.qmd
+    # - chapter3.qmd
+  downloads: pdf
+
+# Set the following options if you want to include BibTeX references, if not, both can be deleted/commented out.
+# The second line sets the citation style via CSL file. Here, I'm directly using a link to one of the AMS's house styles provided online by Zotero.
+bibliography: refs.bib 
+csl: https://www.zotero.org/styles/american-mathematical-society-numeric
+
+format: # This specifies aspects of the output formats, here html and pdf.
+  html:
+    toc: true
+    html-math-method: katex
+    theme:
+      light: flatly
+      dark: darkly
+  pdf:
+    documentclass: scrbook
+    papersize: a4
+    toc: true
+    toc-depth: 2
+    pdf-engine: pdflatex
+    fontfamily: "domitian"
+    mainfont: "Palatino"
+    sansfont: "Palatino"
+    mathfont: "Computer Modern Roman"
+    colorlinks: true
+    linkcolor: blue
+    toccolor: blue
