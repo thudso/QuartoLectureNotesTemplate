@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Dr Thomas Hudson">
 
-<title>Quarto Lecture Notes</title>
+<title>3&nbsp; Advanced topics – Quarto Lecture Notes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -24,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -34,7 +68,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./chapter1.html" rel="next">
+<link href="./chapter2.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -49,6 +83,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-b9eaee60a963b5d74e9d33cc267de6a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark-aa873432a3c62897e6c2091c0d30a948.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="site_libs/bootstrap/bootstrap-b9eaee60a963b5d74e9d33cc267de6a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -77,6 +113,49 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -276,7 +355,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter3.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Advanced topics</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -290,7 +369,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -308,7 +387,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter3.html" class="sidebar-item-text sidebar-link">
+  <a href="./chapter3.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Advanced topics</span></span></a>
   </div>
 </li>
@@ -322,7 +401,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#sec-adv-code-blocks" id="toc-sec-adv-code-blocks" class="nav-link active" data-scroll-target="#sec-adv-code-blocks"><span class="header-section-number">3.1</span> Code blocks</a></li>
+  <li><a href="#sec-adv-videos" id="toc-sec-adv-videos" class="nav-link" data-scroll-target="#sec-adv-videos"><span class="header-section-number">3.2</span> Videos</a></li>
+  <li><a href="#sec-adv-final" id="toc-sec-adv-final" class="nav-link" data-scroll-target="#sec-adv-final"><span class="header-section-number">3.3</span> Final remarks</a></li>
   </ul>
 </nav>
     </div>
@@ -332,26 +413,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Quarto Lecture Notes</h1>
+<h1 class="title"><span id="sec-adv" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Advanced topics</span></span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p><a href="https://sites.google.com/view/thudso/">Dr Thomas Hudson</a> </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2 September, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -361,28 +430,75 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<!-- What follows is a hidden block, it will not be rendered in the output. It is used to define various LaTeX macros. -->
-<div class="hidden">
-<!-- Bold characters -->
-<!-- Calligraphic characters -->
-<!-- Blackboard bold characters -->
-<!-- Bold sans-serif characters -->
-<!-- Operators -->
-<!-- Roman characters -->
-<!-- Derivative and integral notation -->
-<!-- Asymptotic notation -->
+<p>In this final chapter, we will cover the use of code blocks and embedding video in the notes. This chapter is not rendered on a first download, as it requires Python to be installed, and also Quarto needs to know about it. The Python packages used below are <code>numpy</code>, <code>matplotlib</code> and <code>qrcode</code>; it’s likely that if you use Python regularly for Maths, only the last of these will need installing. You will find further information about how to configure Quarto correctly to work with Python in the <a href="https://quarto.org/docs/computations/python.html">Quarto docs</a>. Note that integration with R, Julia and JavaScript are also all possible.</p>
+<section id="sec-adv-code-blocks" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="sec-adv-code-blocks"><span class="header-section-number">3.1</span> Code blocks</h2>
+<p>Code blocks are included using triple backticks, and can be used to include code in various programming languages. The first line of the triple backtick block should state the language, e.g.&nbsp;<code>```python</code>, which ensures that the code is highlighted and styled appropriately for the language. If the name of the language is enclosed in curly braces, Quarto will try to execute it when rendering, so <code>```{python}</code> starts an executable Python block.</p>
+<p>The following executable code block defines a simple Python function, and then runs it. You should see the output of the function in the rendered notes.</p>
+<div id="99c6aac1" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hello_world():</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Hello, world!"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>hello_world()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Hello, world!</code></pre>
 </div>
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>Welcome to a simple template for creating lecture notes using Quarto. This template is designed to be easy to render and modify, allowing you to focus on the content of your notes rather than learning all the fine details of formatting.</p>
-<p>This page is the title page of the notes, and is an html render of <code>index.qmd</code>, serving as the main entry point. You can navigate to other chapters by clicking on the links in the sidebar, or at the bottom of a chapter page. The contents of the chapters are:</p>
+</div>
+<p>If desired, code blocks can be labelled and referenced in the same way as equations, figures, and sections. See below for an example, which should hopefully now be fairly self-explanatory. Note the <code>lst-cap</code> attribute, which provides a caption for the code block.</p>
+<div id="lst-my-first-function" class="listing quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-lst figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-my-first-function-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listing&nbsp;3.1: Computing the mean of the numbers 1 to 10 in Python.
+</figcaption>
+<div aria-describedby="lst-my-first-function-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="dddd25d8" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span> <span class="op">+</span> <span class="dv">4</span> <span class="op">+</span> <span class="dv">5</span> <span class="op">+</span> <span class="dv">6</span> <span class="op">+</span> <span class="dv">7</span> <span class="op">+</span> <span class="dv">8</span> <span class="op">+</span> <span class="dv">9</span> <span class="op">+</span> <span class="dv">10</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The arithmetic mean of the numbers 1 to 10 is"</span>, x <span class="op">/</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The arithmetic mean of the numbers 1 to 10 is 5.5</code></pre>
+</div>
+</div>
+</div>
+</figure>
+</div>
+<p>Code blocks can be used to <em>produce</em> figures, as well as to provide code snippets, which is a really nice feature of Quarto. When using them for figures, it can be useful to hide the code block, but you don’t need to do this if you want students to have access to the code. In fact, code-folding options exist for this purpose to keep the document looking clean. An example of a code-generated figure is provided below. In the markdown, you should be able to see the following opening lines:</p>
+<pre><code>#| label: fig-energyplot
+#| echo: false
+#| fig-cap: "The variation of the Neo-Hookean energy density as a function of various forms of stretch. Here, the parameter values are a=0.6MPa and c=0.6MPa, which are values representative of rubber."
+#| fig-alt: "A plot of the Neo-Hookean energy density as a function of stretch for uniaxial, biaxial, and triaxial deformations. The energy density increases with both stretching and compression. Close to the identity, the stored energy is highest for triaxial deformation, then biaxial, followed by uniaxial deformation."</code></pre>
+<p>Note these lines begin with <code>#|</code>, and set various Quarto attributes for the block. In this case, in order, they set the label for the figure, hide the code block, set the caption and define the alt-text for the figure. The code which follows these lines produces the image for the figure, which will appear rendered in the notes (both HTML and PDF versions).</p>
+<div id="cell-fig-energyplot" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div id="fig-energyplot" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A plot of the Neo-Hookean energy density as a function of stretch for uniaxial, biaxial, and triaxial deformations. The energy density increases with both stretching compression. Close to the identity, the stored energy is highest for triaxial deformation, then biaxial, followed by uniaxial deformation.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-energyplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="chapter3_files/figure-html/fig-energyplot-output-1.png" alt="A plot of the Neo-Hookean energy density as a function of stretch for uniaxial, biaxial, and triaxial deformations. The energy density increases with both stretching compression. Close to the identity, the stored energy is highest for triaxial deformation, then biaxial, followed by uniaxial deformation." width="597" height="429" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-energyplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: The variation of the Neo-Hookean energy density as a function of various forms of stretch. Here, a=0.6MPa and c=0.6MPa, which are values representative of rubber.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>There are many more options for code blocks, and many can be set globally in your notes. For further information, see the <a href="https://quarto.org/docs/output-formats/html-code.html">Quarto documentation</a>.</p>
+<p><strong>Exercise:</strong> Adapt the code above to produce a plot of the quadratic <span class="math inline">y = x^2+x</span> as a figure, adding an appropriate caption and alt-text.</p>
+</section>
+<section id="sec-adv-videos" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="sec-adv-videos"><span class="header-section-number">3.2</span> Videos</h2>
+<p>A further nice feature of Quarto is that you can embed videos in the HTML notes. For example, the following video is embedded in the HTML output from YouTube. Note that for the HTML, it is good practice is to embed video from a third-party website rather than include your own as a raw video file. The reason for this is that third-party hosting sites often provide subtitles for accessibility. To embed a video, simply use the syntax <code></code>, where <code>url.com/video</code> is the link to the appropriate video.</p>
+<p>If you are viewing the PDF version of the notes, you will find that the embdedded video has been replaced by a QR code which can be scanned to access the video. The reason for this is that if you are rendering in both HTML and PDF formats, you need to handle the video appropriately: the default approach is not very clean (try this for yourself and see!). In the markdown below, you’ll see that the QR code is automatically generated using the Python <code>qrcode</code> package. If you copy the code below, make sure to change the video addresses each time it appears, note there are 3 places to do this! Notice that there are two blocks, which show conditionally depending on the render method.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/YCXmUi56rao?si=iRoJvmnyTZDHu1y2" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p><strong>Exercise:</strong> Embed a YouTube video of your choice in these notes, and adapt the code above to show a QR code linking to the video in the PDF notes.</p>
+</section>
+<section id="sec-adv-final" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="sec-adv-final"><span class="header-section-number">3.3</span> Final remarks</h2>
+<p>Thanks for making it this far! I hope you give Quarto a go. I’m very happy to offer help and advice if you do decide to do so. In addition, Ferran Brosa Planella is also actively using Quarto for notes, so he has said you can ask him for advice too, and please spread the word!</p>
+<p>Some additional things that I didn’t have time to talk about include:</p>
 <ul>
-<li><a href="chapter1.html" class="quarto-xref"><span>1&nbsp; Introduction to Quarto</span></a> provides a quickstart to Quarto, how to render and upload notes to Moodle, and then</li>
-<li><a href="chapter2.html" class="quarto-xref"><span>2&nbsp; A template chapter</span></a> provides more detail about the aspects of Quarto syntax that are most useful.</li>
+<li>For some of my notes, I have set up some automated scripting to render standalone tikz diagrams to both SVG and PDF format for embedding respectively into HTML and PDF notes. If this is something that interests you, I can share my workflow.</li>
+<li>Quarto doesn’t just produce books, you can also use it to produce presentations and websites. These are all explained in the documentation!</li>
 </ul>
-<p>The latter chapter is a good starting template from which you can work to adapt existing notes or create new ones. A further (initially hidden) chapter covers some other advanced topics, namely using code and embedding video in notes. This is hidden at first render to make the overheads a little lower.</p>
-<p>These notes assume that you are already very familiar with creating LaTeX notes, and work from there. There will doubtless be errors and typos present in this template. If you do spot anything, please feel free to let me know via email.</p>
-<p><a href="https://sites.google.com/view/thudso/">Dr Thomas Hudson</a>, Sept 2026</p>
 
 
 </section>
@@ -803,14 +919,15 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./chapter2.html" class="pagination-link" aria-label="A template chapter">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">A template chapter</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter1.html" class="pagination-link" aria-label="Introduction to Quarto">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Quarto</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<script>videojs(video_shortcode_videojs_video1);</script>
 
 
 

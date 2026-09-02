@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; An example chapter – Quarto Lecture Notes</title>
+<title>2&nbsp; A template chapter – Quarto Lecture Notes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -53,6 +53,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./chapter3.html" rel="next">
 <link href="./chapter1.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -69,11 +70,11 @@ div.csl-indent {
 <link href="site_libs/bootstrap/bootstrap-dark-aa873432a3c62897e6c2091c0d30a948.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="site_libs/bootstrap/bootstrap-b9eaee60a963b5d74e9d33cc267de6a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -142,7 +143,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -308,38 +309,46 @@ window.Quarto = {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Quarto Lecture Notes</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./Quarto-Lecture-Notes.pdf"> <i class="bi bi-file-pdf" role="img">
+</i> 
+<span class="menu-text">Download PDF notes</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter2.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">An example chapter</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter2.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">A template chapter</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Quarto Lecture Notes</a> 
-        <div class="sidebar-tools-main">
-    <a href="./Quarto-Lecture-Notes.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-</div>
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -357,7 +366,13 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter2.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">An example chapter</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">A template chapter</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Advanced topics</span></span></a>
   </div>
 </li>
     </ul>
@@ -390,7 +405,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-ex" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">An example chapter</span></span></h1>
+<h1 class="title"><span id="sec-ex" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">A template chapter</span></span></h1>
 </div>
 
 
@@ -421,19 +436,23 @@ window.Quarto = {
 <!--
 The line above includes macros defined in macros.qmd, you can modify any standard definitions there. Note you need to include this line at the top of each chapter file.
 -->
+<p>This chapter provides a template, giving examples of sections, formatting and so on that can be adapted for your own notes.</p>
 <section id="sec-ex-learning-objectives" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="sec-ex-learning-objectives"><span class="header-section-number">2.1</span> Aims</h2>
 <p>By the end of this section you should be able to:</p>
 <ul>
 <li>Use sections and subsections to structure your notes;</li>
-<li>Understand basic Quarto syntax for writing text, equations, and code; and</li>
-<li>Include figures in your notes, and reference them in the text.</li>
+<li>Use basic Quarto syntax for formatting text and equations;</li>
+<li>Use labelling, cross-referencing and citations in Quarto; and</li>
+<li>Add figures and images to your notes.</li>
 </ul>
 </section>
 <section id="sec-ex-sections-and-subsections" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="sec-ex-sections-and-subsections"><span class="header-section-number">2.2</span> Sections and subsections</h2>
 <p>It’s important to structure your notes using sections and subsections in an ordered fashion for accessibility. You can create a section by using a single <code>#</code> followed by the chapter title, and a section by using two <code>##</code> followed by the subsection title. You can also create subsections by using three <code>###</code> followed by the subsubsection title (and so on). Sections are labelled by including a label in curly braces after the section title, for example <code># Example section {#sec-example-section}</code>. Looking at the markdown file will show you this clearly. It’s important to note that the label should be unique, and should not contain spaces. For a section, labels should always begin with <code>sec-</code>. You can then reference the section using <code>@sec-ex-sections-and-subsections</code>, which renders to <a href="#sec-ex-sections-and-subsections" class="quarto-xref"><span>Section 2.2</span></a>.</p>
 <p>To create cross-references to sections, use the syntax <code>@sec-label</code>, where <code>label</code> is the label you have assigned to the section. The label for this section is <code>#sec-ex-sections-and-subsections</code>, so <code>@sec-ex-sections-and-subsections</code> is the equivalent of the latex syntax <code>\ref{sec-ex-sections-and-subsections}</code>, and renders to <a href="#sec-ex-sections-and-subsections" class="quarto-xref"><span>Section 2.2</span></a>. Notice that by default, the link generated in the html will state the nature of the reference; this is partly why the <code>sec-</code> prefix is used.</p>
+<p><strong>Exercise:</strong> Add a subsubsection called “Exercises” to this page containing these exercises.</p>
+<p><strong>Exercise:</strong> Label this subsubsection with the label <code>sec-ex-exercises</code> and add a cross-reference to this text.</p>
 </section>
 <section id="sec-ex-basic-formatting" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="sec-ex-basic-formatting"><span class="header-section-number">2.3</span> Basic formatting</h2>
@@ -456,6 +475,7 @@ The line above includes macros defined in macros.qmd, you can modify any standar
 <li>Item 2</li>
 </ol>
 <p>Links can be created using the syntax <code>[link text](url)</code>, for example <a href="https://quarto.org/">Quarto website</a>. For many further examples of formatting, check the <a href="https://quarto.org/docs/authoring/markdown-basics.html">Quarto documentation</a>.</p>
+<p><strong>Exercise:</strong> Make a list containing formatted links to your website, and the Maths Institute homepage.</p>
 </section>
 <section id="sec-ex-equations" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="sec-ex-equations"><span class="header-section-number">2.4</span> Equations</h2>
@@ -474,6 +494,7 @@ The line above includes macros defined in macros.qmd, you can modify any standar
 \text{subject to the constraint } x+y=1.
 \end{gathered}
 \tag{2.3}</span></span> Note that you can’t label individual lines in a multi-line equation in Quarto, only the entire equation block. For accessibility purposes, this is a good thing, as it avoids confusion about which line is being referenced. You can always write a series of equations as separate blocks consecutively, and label them individually if you wish.</p>
+<p><strong>Exercise:</strong> Write your favourite equation, label it and then write a sentence cross-referencing it.</p>
 </section>
 <section id="sec-ex-figures" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="sec-ex-figures"><span class="header-section-number">2.5</span> Figures</h2>
@@ -568,6 +589,7 @@ Important
 </div>
 </div>
 <p>See the markdown code for examples of how to use these. Note that with basic Quarto, these can’t be numbered or cross-referenced, but some extensions have been developed to allow this, see for example Ute Hahn’s github repository <a href="https://github.com/ute/custom-numbered-blocks">here</a>.</p>
+<p><strong>Exercise:</strong> Create your own figure with and add it to this section. Label it (remember the label should be of the form <code>fig-label</code>) and add a cross-reference to it in a sentence. Make sure to add some alt-text to the image for accessibility!</p>
 </section>
 <section id="citations-and-references" class="level2" data-number="2.7">
 <h2 data-number="2.7" class="anchored" data-anchor-id="citations-and-references"><span class="header-section-number">2.7</span> Citations and references</h2>
@@ -576,7 +598,8 @@ Important
 <pre><code>::: {#refs}
 :::</code></pre>
 <p>somewhere in your document where you want the bibliography to appear. Here, the rendered version appears below for convenience.</p>
-<p>I have not used referencing myself, so I recommend see the appropriate page in the <a href="https://quarto.org/docs/authoring/citations.html">Quarto docs</a> for further details.</p>
+<p>I have not used referencing extensively myself, so I recommend see the appropriate page in the <a href="https://quarto.org/docs/authoring/citations.html">Quarto docs</a> for further details.</p>
+<p><strong>Exercise:</strong> Add an entry to refs.bib and cite it in the text here.</p>
 <section id="references" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="references">References</h3>
 <div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
@@ -592,7 +615,7 @@ analysis</em>, 3rd ed., McGraw-Hill, New York, 1976.</div>
 <p>These notes do also contain an advanced chapter which involve code elements, which is not rendered by default. The reason for this is that the software overheads to get this working are a little higher, and I don’t expect everyone to need these features. If you’d like to explore using code in your notes, follow the steps below:</p>
 <ol type="1">
 <li>In <code>_quarto.yml</code>, uncomment line 14 of the file, i.e.&nbsp;change <code># - chapter3.qmd</code> to <code>- chapter3.qmd</code>.</li>
-<li>Further information about how to configure Quarto correctly to work with Python in the <a href="https://quarto.org/docs/computations/python.html">Quarto docs</a>. I can’t provide full instructions for doing this, as it will depend on what level of access you have on your machine; hopefully if you are the sort of person who is happy to dabble with these things, you will find it fairly straightforward. Note that integration with R, Julia and JavaScript are also all possible. To render the next chapter, you will need Quarto to be able to access a version of python which has <code>numpy</code>, <code>matplotlib</code>, <code>linalg</code> and <code>qrcode</code> installed.</li>
+<li>Further information about how to configure Quarto correctly to work with Python in the <a href="https://quarto.org/docs/computations/python.html">Quarto docs</a>. I can’t provide full instructions for doing this, as it will depend on what level of access you have on your machine; hopefully if you are the sort of person who is happy to dabble with these things, you will find it fairly straightforward. Note that integration with R, Julia and JavaScript are also all possible, not just Python. To render the next chapter, you will need Quarto to be able to access a version of python which has the packagaes <code>numpy</code>, <code>matplotlib</code> and <code>qrcode</code> installed. You can install all of these via pip.</li>
 <li>Once this is done, rerender the document. You should find the error messages descriptive if there are issues.</li>
 </ol>
 
@@ -1020,6 +1043,9 @@ analysis</em>, 3rd ed., McGraw-Hill, New York, 1976.</div>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./chapter3.html" class="pagination-link" aria-label="Advanced topics">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Advanced topics</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
