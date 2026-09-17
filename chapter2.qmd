@@ -76,6 +76,29 @@ Note that you can't label individual lines in a multi-line equation in Quarto, o
 
 **Exercise:** Write your favourite equation, label it and then write a sentence cross-referencing it.
 
+
+## Theorem-like environments {#sec-ex-theorems}
+
+We can define theorem-like environments as are provided by the `amsthm` package in LaTeX. These are enclosed in a container starting and ending with `:::`, and need to be given an appropriate label. For example, the label for the following environment is `#thm-FTC`. By using appropriate label suffixes, we can create lemmas (`#lem-label`), propositions (`#prp-label`) and so on. See the [Quarto documentation on theorem environments](https://quarto.org/docs/authoring/cross-references.html#theorems-and-proofs) for further information. Cross-referencing works as for sections, for example `@thm-FTC` will render to @thm-FTC.
+
+::: {#thm-FTC}
+## The Fundamental Thoerem of Calculus
+If $f,F:[a,b]\to\mathbb{R}$ are continuous functions satisfying the condition that:
+$$
+F'(x) = f(x)
+$$
+for all $x\in[a,b]$, then
+$$
+\int_a^b f(x)\,\mathrm{d}x = F(b)-F(a).
+$$
+:::
+
+::: {.proof}
+Left as a exercise for the reader.
+:::
+
+**Exercise:** Create a lemma environment containing an appropriate result and reference it in some text.
+
 ## Figures {#sec-ex-figures}
 
 Including figures is relatively straightforward, but requires its own special syntax; an example figure is shown in @fig-geometry. Figures provide a first example of Quarto's triple colon `:::` syntax, which is used to surround custom blocks such as figures, code blocks, and include other special elements.
